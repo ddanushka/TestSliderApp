@@ -1,0 +1,41 @@
+{
+  "data": {
+    "homePage": {
+      "title": "LOREM IPSUM DOLOR",
+      "subTitle": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros",
+      "backgroundVideo": "/static/media/mov_bbb.2c92d012.mp4"
+    },
+    "sliderPage": {
+      "title": "DONEC NEC JUSTO",
+      "link": "Discover more",
+      "backgroundImage": {
+        "lg": "/static/media/slider-2-lg.2d50354b.jpg",
+        "md": "/static/media/slider-2-md.d322f19b.jpg",
+        "sm": "/static/media/slider-2-sm.6fa28219.jpg",
+        "xs": "/static/media/slider-2-xs.a04fff79.jpg"
+      },
+      "slider": [
+        {"id" : "1",
+          "title" : "Lorem ipsum #1",
+          "content": "Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci."
+        },
+        {"id" : "2",
+          "title" : "Lorem ipsum #2",
+          "content": "Aenean dignissim pellentesque felis sed egestas, ante et vulputate volutpat."
+        },
+          {"id" : "3",
+          "title" : "Lorem ipsum #3",
+          "content": "Eros pede semper est, vitae luctus metus libero eu augue."
+        },
+          {"id" : "4",
+          "title" : "Lorem ipsum #4",
+          "content": "Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci."
+        },
+          {"id" : "5",
+          "title" : "Lorem ipsum #5",
+          "content": "Aenean dignissim pellentesque felis sed egestas, ante et vulputate volutpat."
+        }
+        ]
+    }
+  }
+}

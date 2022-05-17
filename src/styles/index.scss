@@ -1,0 +1,317 @@
+@import "scss-reset/_reset.scss";
+
+$text-color: #404040;
+$btn-color: #4472c4;
+$btn-color-inactive: #262626;
+$color-dark-bk: #d9d9d9;
+$btn-hover-white: #eaeaea;
+
+$screen-xs: 380px;
+$screen-sm: 768px;
+$screen-md: 992px;
+$screen-lg: 1200px;
+
+html,
+body {
+  overflow: hidden;
+  font-size: 12px;
+  @media screen and (max-width: $screen-md),
+    screen and (max-height: $screen-md) {
+    font-size: 11px;
+  }
+  @media screen and (max-width: $screen-sm),
+    screen and (max-height: $screen-sm) {
+    font-size: 10px;
+  }
+  @media screen and (max-width: $screen-xs),
+    screen and (max-height: $screen-xs) {
+    font-size: 8px;
+  }
+}
+
+@mixin coverScreen($display: inherit, $position: static) {
+  width: 100%;
+  height: 100%;
+  display: $display;
+  position: $position;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  position: relative;
+
+  .main-header {
+    .logo {
+      text-align: center;
+      font-size: 1.5rem;
+      color: $color-dark-bk;
+      border: 1px solid $color-dark-bk;
+      width: 100px;
+      height: 35px;
+      margin: 10px;
+      line-height: 32px;
+      position: absolute;
+      z-index: 1;
+    }
+    .slider-nav {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translate(0, -50%);
+      z-index: 9;
+      .slider-nav__icon {
+        li {
+          display: block;
+          background: $btn-color-inactive;
+          height: 8px;
+          width: 24px;
+          margin: 20px 0 20px auto;
+          transition: ease 200ms;
+          &:not(.active):hover {
+            cursor: pointer;
+            transform: scale(1.2);
+          }
+          &.active {
+            background: $btn-color;
+            height: 12px;
+            width: 40px;
+          }
+          &.dark-bk {
+            background-color: $color-dark-bk;
+          }
+        }
+      }
+    }
+    .nav-arrow {
+      width: 28px;
+      height: 28px;
+      border: 8px solid;
+      border-color: $btn-color transparent transparent $btn-color;
+      transition: ease 320ms;
+      cursor: pointer;
+      &.bottom {
+        border-color: $btn-color transparent transparent $btn-color;
+        position: absolute;
+        bottom: 20px;
+        z-index: 1;
+        transform: rotate(-135deg);
+        left: calc(50% - 20px);
+      }
+      &:hover {
+        animation: bounce 1s infinite;
+        border-color: #5b83cb transparent transparent #5b83cb;
+      }
+    }
+    .discover-more {
+      text-transform: uppercase;
+      position: absolute;
+      right: 0;
+      color: $color-dark-bk;
+      text-transform: uppercase;
+      position: absolute;
+      right: 0;
+      z-index: 1;
+      margin: 15px;
+      cursor: pointer;
+    }
+  }
+  .main-content {
+    max-width: 1100px;
+    text-align: center;
+    padding: 3rem;
+    color: $text-color;
+    h1.main-content__header {
+      font-size: 4rem;
+      font-weight: bold;
+      animation-delay: 0.5s;
+      &:hover + .main-content__header__underline {
+        transform: scaleX(1.5);
+      }
+    }
+    .main-content__header__underline {
+      display: block;
+      height: 5px;
+      width: 12rem;
+      margin: 0 auto 2rem auto;
+      background: $text-color;
+      transition: ease 1s;
+    }
+    h2.main-content__subheader {
+      font-size: 2rem;
+      font-weight: normal;
+      animation-delay: 1s;
+      width: 80%;
+      margin: 0 auto;
+    }
+    .fadein-text {
+      animation: 2s fadeIn;
+      animation-fill-mode: forwards;
+      visibility: hidden;
+      opacity: 0;
+      transition: ease-in 200ms;
+    }
+  }
+  video.background-video {
+    @include coverScreen($display: inherit, $position: absolute);
+    object-fit: cover;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+  }
+
+  .fadeIn-fadeOut .first-component:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: black;
+    z-index: 9999;
+    animation: fadeInOut 2s;
+  }
+
+  .first-component {
+    @include coverScreen($display: flex, $position: static);
+    background-color: rgb(255 255 255 / 78%);
+    justify-content: center;
+    align-items: center;
+  }
+
+  .second-component {
+    @include coverScreen($display: inline-block, $position: relative);
+    .background-img {
+      @include coverScreen($display: inherit, $position: absolute);
+      top: 0;
+      left: 0;
+      z-index: -1;
+      img {
+        object-fit: cover;
+        width: inherit;
+        height: inherit;
+      }
+    }
+    .main-content-slider {
+      font-weight: bold;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+      align-items: self-end;
+      justify-content: center;
+      animation-delay: 0.5s;
+      padding-right: 10%;
+      margin-top: 30px;
+      height: calc(100% - 80px);
+      h1 {
+        font-size: 4rem;
+        color: $color-dark-bk;
+        text-align: right;
+        transition: ease 200ms;
+        &:hover {
+          opacity: 0.9;
+        }
+      }
+      .slider-wrapper {
+        width: 68%;
+        @media (max-width: $screen-sm) {
+          width: 80%;
+        }
+        .slider-item {
+          height: 200px;
+          width: 200px;
+          background-color: $color-dark-bk;
+          padding: 15px;
+          border-top-left-radius: 15%;
+          border-bottom-right-radius: 15%;
+          transition: ease 200ms;
+          cursor: pointer;
+          &:hover {
+            background: $btn-hover-white;
+            transform: translateY(2px);
+          }
+          @media screen and (min-width: $screen-md),
+            screen and (min-height: $screen-md) {
+            height: 240px;
+            width: 240px;
+          }
+          @media screen and (max-width: $screen-md),
+            screen and (max-height: $screen-md) {
+            height: 240px;
+            width: 240px;
+          }
+          @media screen and (max-width: $screen-sm),
+            screen and (max-height: $screen-sm) {
+            height: 210px;
+            width: 210px;
+          }
+          @media screen and (max-width: $screen-xs),
+            screen and (max-height: $screen-xs) {
+            height: 180px;
+            width: 180px;
+          }
+          h3 {
+            font-size: 2.2rem;
+            padding-bottom: 10px;
+          }
+          p {
+            font-size: 1.5rem;
+            font-weight: normal;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Animations
+@keyframes fadeInOut {
+  0% {
+    display: block;
+    visibility: visible;
+    z-index: 999;
+    opacity: 0;
+  }
+  68% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    visibility: visible;
+    opacity: 1;
+    transform: scale(4);
+  }
+  40% {
+    visibility: hidden;
+    opacity: 0;
+  }
+  50% {
+    visibility: visible;
+    opacity: 0;
+  }
+  100% {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+@keyframes bounce {
+  0% {
+    transform: rotate(-135deg) translate(0, 0);
+  }
+  66% {
+    transform: rotate(-135deg) translate(5px, 5px);
+  }
+  100% {
+    transform: rotate(-135deg) translate(0, 0);
+  }
+}
